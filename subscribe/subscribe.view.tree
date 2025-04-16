@@ -1,0 +1,18 @@
+$mol_page
+	title @ \Subscribe
+	head /
+		<= Head $mol_head
+			title <= title
+	body /
+		<= Body $mol_view
+			sub /
+				<= Form $mol_form
+					sub /
+						<= Email $mol_string
+							hint @ \Your email
+							value?val <=> email* \
+						<= Submit $mol_button_major
+							title @ \Subscribe
+							click?event <=> submit* null
+				<= Message $mol_text
+					text <= message* \
