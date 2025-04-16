@@ -1,30 +1,28 @@
-namespace $ {
+namespace $.$$ {
 	export class $horrorgamelanding extends $.$mol_page {
-		
-		@ $mol_mem
+		@$mol_mem
 		scroll_to_footer() {
 			const footer = this.foot()
-			if( footer && footer[0]?.dom_node() ) {
+			if (footer && footer[0]?.dom_node()) {
 				footer[0].dom_node()?.scrollIntoView({ behavior: 'smooth' })
 			}
 		}
-		
-		@ $mol_mem
+
+		@$mol_mem
 		submit_email() {
 			const email = this.email()
-			if( !email ) return
-			
+			if (!email) return
+
 			// Here you would typically send the email to your backend
-			console.log( 'Email submitted:', email )
-			
+			console.log('Email submitted:', email)
+
 			// Clear the input
-			this.email( '' )
+			this.email('')
 		}
-		
-		@ $mol_mem
-		email( next?: string ) {
+
+		@$mol_mem
+		email(next?: string) {
 			return next ?? ''
 		}
-		
 	}
-} 
+}
