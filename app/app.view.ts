@@ -6,8 +6,8 @@ namespace $.$$ {
 		}
 
 		@$mol_mem
-		subscribe() {
-			return new $horrorgamelanding_subscribe()
+		Subscribe() {
+			return new this.$.$horrorgamelanding_subscribe()
 		}
 	}
 }
