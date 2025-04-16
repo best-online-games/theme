@@ -1,6 +1,6 @@
-namespace $ {
+namespace $.$$ {
 
-	export class $horrorgamelanding_subscribe extends $mol_page {
+	export class $horrorgamelanding_subscribe extends $.$horrorgamelanding_subscribe {
 
 		@ $mol_mem
 		domain() {

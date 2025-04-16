@@ -1,10 +1,7 @@
 $horrorgamelanding_subscribe $mol_page
 	title @ \Subscribe
-	head /
-		<= Head $mol_head
-			title <= title
 	body /
-		<= Body $mol_view
+		<= Body $mol_scroll
 			sub /
 				<= Form $mol_form
 					sub /
