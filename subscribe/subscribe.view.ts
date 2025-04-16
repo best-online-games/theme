@@ -4,7 +4,7 @@ namespace $ {
 
 		@ $mol_mem
 		domain() {
-			return this.$.$horrorgamelanding_domain.make( this.$.$hyoo_crus_realm.make() )
+			return this.$.$hyoo_crus_glob.home().hall_by( $horrorgamelanding_domain, {} )
 		}
 
 		@ $mol_mem
@@ -27,7 +27,7 @@ namespace $ {
 				return null
 			}
 
-			const email_node = this.domain().email_make()
+			const email_node = this.domain()!.email_make()
 			email_node.value( email )
 			email_node.date( new $mol_time_moment() )
 

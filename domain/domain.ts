@@ -1,31 +1,21 @@
 namespace $ {
 
-	export class $horrorgamelanding_domain extends $hyoo_crus_node {
+	export class $horrorgamelanding_domain extends $hyoo_crus_entity.with({
+		emails: $hyoo_crus_list_ref_to( ()=> $horrorgamelanding_email ),
+	}) {
 
 		@ $mol_mem
-		emails_node() {
-			return this.sub( 'emails', $hyoo_crus_list )
-		}
-		
-		@ $mol_mem
-		emails_ids() {
-			return this.emails_node().list().map( (id: string) => $mol_int62_string_ensure( id ) ).filter( $mol_guard_defined )
+		emails_list(): readonly $horrorgamelanding_email[] {
+			return this.emails()?.remote_list() ?? []
 		}
 
 		@ $mol_mem_key
 		email( id: $mol_int62_string ) {
-			const email = this.world()!.Fund( $horrorgamelanding_email ).Item( id )
-			email.steal_rights( this )
-			return email
-		}
-
-		@ $mol_mem
-		emails() {
-			return this.emails_ids().map( (id: $mol_int62_string) => this.email( id ) )
+			return this.$.$hyoo_crus_glob.Node( $hyoo_crus_ref( id ), $horrorgamelanding_email )
 		}
 
 		email_make() {
-			return this.world()!.Fund( $horrorgamelanding_email ).make()!
+			return this.emails()?.remote_make({})!
 		}
 
 		@ $mol_mem
@@ -41,7 +31,5 @@ namespace $ {
 		}
 
 	}
-
-	$hyoo_crus_node.mixin($horrorgamelanding_domain)
 
 } 
