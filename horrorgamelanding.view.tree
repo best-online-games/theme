@@ -4,9 +4,9 @@ $horrorgamelanding $mol_page
 		<= Theme $mol_theme_auto
 	header /
 		<= Logo $mol_image
-			src \logo.png
+			uri \logo.jpg
 		<= Nav $mol_nav
-			links /
+			sub /
 				<= Home $mol_link
 					uri \#
 					title \Home
@@ -45,7 +45,7 @@ $horrorgamelanding $mol_page
 							title \3D audio that will make you look over your shoulder
 	footer /
 		<= Subscribe $mol_form
-			fields /
+			sub /
 				<= Email $mol_string
 					hint \Enter your email
 					value? <=> email? \
