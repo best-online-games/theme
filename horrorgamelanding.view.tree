@@ -4,7 +4,7 @@ $horrorgamelanding $mol_page
 		<= Theme $mol_theme_auto
 	header /
 		<= Logo $mol_image
-			uri \logo.jpg
+			uri \../-bin/logo.jpg.js
 		<= Nav $mol_nav
 			sub /
 				<= Home $mol_link
@@ -52,4 +52,4 @@ $horrorgamelanding $mol_page
 			submit /
 				<= Submit $mol_button_major
 					title \Subscribe
-					click? <=> submit_email? true 
+					click? <=> submit_email? true
