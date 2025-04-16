@@ -1,10 +1,10 @@
-$horrorgamelanding $mol_page
+horrorgamelanding_app_app $mol_page
 	title \Horror Game
 	plugins /
 		<= Theme $mol_theme_auto
 	header /
 		<= Logo $mol_image
-			uri \../-bin/logo.jpg.js
+			uri \logo/logo.jpg
 		<= Nav $mol_nav
 			sub /
 				<= Home $mol_link

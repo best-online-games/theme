@@ -1,0 +1,15 @@
+{
+	"short_name": "Horror Game",
+	"name": "Horror Game Landing",
+	"icons": [
+		{
+			"src": "../../horrorgamelanding/logo/logo.jpg",
+			"type": "image/jpeg",
+			"sizes": "48x48"
+		}
+	],
+	"start_url": "../..",
+	"background_color": "#000000",
+	"theme_color": "#000000",
+	"display": "standalone"
+} 

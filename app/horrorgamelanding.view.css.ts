@@ -1,7 +1,7 @@
 namespace $ {
 	const { per } = $mol_style_unit
 
-	$mol_style_define($horrorgamelanding, {})
+	$mol_style_define(horrorgamelanding_app, {})
 	$mol_style_define($mol_page, {
 		flex: 'auto',
 		display: 'flex',
