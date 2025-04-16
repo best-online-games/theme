@@ -4,7 +4,7 @@ $horrorgamelanding_app $mol_page
 		<= Theme $mol_theme_auto
 	header /
 		<= Logo $mol_image
-			uri \logo/logo.jpg
+			uri \horrorgamelanding/logo/logo.jpg
 		<= Nav $mol_nav
 			sub /
 				<= Home $mol_link
