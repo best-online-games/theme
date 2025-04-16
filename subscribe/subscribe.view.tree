@@ -1,4 +1,4 @@
-$horrorgamelanding_subscribe $mol_view
+$horrorgamelanding_subscribe $mol_card
 	title @ \Subscribe
 	body /
 		<= Body $mol_scroll
