@@ -1,4 +1,4 @@
 include \/mol/offline/install
 
 deploy \/horrorgamelanding/app/manifest.json
-deploy \/horrorgamelanding/app/logo/logo.jpg
+deploy \/horrorgamelanding/logo/logo.jpg
