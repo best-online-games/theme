@@ -1,5 +1,5 @@
 namespace $.$$ {
-	export class $horrorgamelanding extends $.$mol_page {
+	export class $horrorgamelanding extends $.$horrorgamelanding {
 		@$mol_mem
 		scroll_to_footer() {
 			const footer = this.foot()
