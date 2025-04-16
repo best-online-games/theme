@@ -43,5 +43,6 @@ $horrorgamelanding_app $mol_page
 					sub /
 						<= Sound_text $mol_paragraph
 							title \3D audio that will make you look over your shoulder
-	footer /
 		<= Subscribe $horrorgamelanding_subscribe
+		
+	footer /

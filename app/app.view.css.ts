@@ -1,10 +1,20 @@
 namespace $ {
 	const { per } = $mol_style_unit
 
-	$mol_style_define($horrorgamelanding_app, {})
+	$mol_style_define($horrorgamelanding_app, {
+		Body_content: {
+			flex: 'auto',
+			display: 'flex',
+   	        align-content: 'center',
+            flex-wrap: 'wrap',
+            flex-direction: 'column',
+            justify-content: 'center',
+            align-items: 'baseline',
+		},
+	})
 	$mol_style_define($mol_page, {
-		flex: 'auto',
-		display: 'flex',
+		// flex: 'auto',
+		// display: 'flex',
 		flexDirection: 'column',
 		alignItems: 'stretch',
 		justifyContent: 'stretch',
@@ -19,12 +29,12 @@ namespace $ {
 	})
 	$mol_style_define($mol_section, {
 		padding: '1rem',
-		background: { color: '#2a2a2a' },
+		background: { color: '#ffffff' },
 		borderRadius: '0.5rem',
 		margin: '1rem',
 	})
 	$mol_style_define($mol_card, {
-		background: { color: '#333333' },
+		background: { color: '#ffffff' },
 		borderRadius: '0.5rem',
 		padding: '1rem',
 		margin: '0.5rem',
