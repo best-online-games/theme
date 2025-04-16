@@ -1,4 +1,4 @@
-$mol_page
+$horrorgamelanding_subscribe $mol_page
 	title @ \Subscribe
 	head /
 		<= Head $mol_head

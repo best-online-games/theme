@@ -44,12 +44,4 @@ $horrorgamelanding_app $mol_page
 						<= Sound_text $mol_paragraph
 							title \3D audio that will make you look over your shoulder
 	footer /
-		<= Subscribe $mol_form
-			sub /
-				<= Email $mol_string
-					hint \Enter your email
-					value? <=> email? \
-			submit /
-				<= Submit $mol_button_major
-					title \Subscribe
-					click? <=> submit_email? true
+		<= Subscribe $horrorgamelanding_subscribe

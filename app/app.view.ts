@@ -4,5 +4,10 @@ namespace $.$$ {
 		email(next?: string) {
 			return next ?? ''
 		}
+
+		@$mol_mem
+		subscribe() {
+			return new $horrorgamelanding_subscribe()
+		}
 	}
 }
