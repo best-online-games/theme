@@ -10,7 +10,6 @@ namespace $ {
 		@$mol_mem_key
 		email(id: $mol_int62_string) {
 			const email = this.$.$hyoo_crus_glob.Node($hyoo_crus_ref(id), $horrorgamelanding_email)
-			email.steal_rights(this)
 			return email
 		}
 
@@ -26,7 +25,6 @@ namespace $ {
 
 		email_make() {
 			const email = this.$.$hyoo_crus_glob.Node($hyoo_crus_ref(this.$.$mol_guid()), $horrorgamelanding_email)
-			this.Emails()?.add(email)
 			return email
 		}
 
