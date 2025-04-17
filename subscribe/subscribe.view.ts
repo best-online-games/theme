@@ -6,8 +6,11 @@ namespace $.$$ {
 		}
 
 		@$mol_mem
-		email(next?: string) {
-			return next ?? ''
+		email(next?: string): string {
+			if (next !== undefined) {
+				this.$.$mol_state_local.value('horrorgamelanding_subscribe_email', next)
+			}
+			return this.$.$mol_state_local.value('horrorgamelanding_subscribe_email') ?? ''
 		}
 
 		@$mol_mem
@@ -17,7 +20,6 @@ namespace $.$$ {
 
 		@$mol_mem
 		submit(event?: Event) {
-			console.log(event)
 			if (!event) return null
 
 			const email = this.email()
@@ -25,8 +27,19 @@ namespace $.$$ {
 				this.message('Please enter your email')
 				return null
 			}
-			console.log(email)
-			const email_node = this.domain()!.email_make()
+
+			const domain = this.domain()
+			if (!domain) {
+				this.message('Domain not found')
+				return null
+			}
+
+			const email_node = domain.email_make()
+			if (!email_node) {
+				this.message('Failed to create email node')
+				return null
+			}
+
 			email_node.value(email)
 			email_node.date(new $mol_time_moment())
 

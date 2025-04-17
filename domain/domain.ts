@@ -15,7 +15,9 @@ namespace $ {
 		}
 
 		email_make() {
-			return this.emails()?.remote_make({})!
+			const emails = this.emails()
+			if (!emails) return null
+			return emails.remote_make({})
 		}
 
 		@ $mol_mem

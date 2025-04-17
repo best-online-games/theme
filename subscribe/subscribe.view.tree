@@ -7,7 +7,7 @@ $horrorgamelanding_subscribe $mol_card
 					name @ \E-mail
 					bid <= email_bid \
 					Content <= Email_control $mol_string
-						hint @ \name@domain.com
+						hint @ \Enter your email to subscribe
 						value? <=> email? \
 			submit? <=> submit? null
 			submit_allowed => submit_allowed
