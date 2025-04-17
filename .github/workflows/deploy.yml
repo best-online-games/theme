@@ -1,5 +1,7 @@
 name: $horrorgamelanding_app
 
+permissions: write-all
+
 on:
   workflow_dispatch:
   push:
