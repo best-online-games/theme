@@ -4,10 +4,10 @@ $horrorgamelanding_subscribe $mol_card
 		<= Form $mol_form
 			body /
 				<= Email_field $mol_form_field
-					name \E-mail
+					name @ \E-mail
 					bid <= email_bid \
 					Content <= Email_control $mol_string
-						hint \name@domain.com
+						hint @ \name@domain.com
 						value? <=> email? \
 			submit? <=> submit? null
 			submit_allowed => submit_allowed
