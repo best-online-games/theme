@@ -1,4 +1,4 @@
-name: $horrorgamelanding
+name: $horrorgamelanding_app
 
 permissions: write-all
 
@@ -19,8 +19,9 @@ jobs:
     - uses: hyoo-ru/mam_build@master2
       with:
         package: '$horrorgamelanding'
+        modules: 'app'
 
     - uses: hyoo-ru/gh-deploy@v4.4.1
-      if: github.ref == 'refs/heads/main'
+      if: github.ref == 'refs/heads/master'
       with:
-        folder: '$horrorgamelanding/-'
+        folder: '$horrorgamelanding/app/-'
