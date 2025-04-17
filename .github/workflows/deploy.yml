@@ -1,7 +1,5 @@
 name: $horrorgamelanding_app
 
-permissions: write-all
-
 on:
   workflow_dispatch:
   push:
@@ -24,4 +22,4 @@ jobs:
     - uses: hyoo-ru/gh-deploy@v4.4.1
       if: github.ref == 'refs/heads/master'
       with:
-        folder: '$horrorgamelanding/app/-'
+        folder: 'horrorgamelanding/app/-'
