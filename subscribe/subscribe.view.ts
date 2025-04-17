@@ -52,7 +52,7 @@ namespace $.$$ {
 
 			console.log('0.09014: Setting email value')
 			email_node.value(email)
-			email_node.date()
+			// email_node.date()
 			console.log('0.09015: Email value set')
 
 			console.log('0.09016: Setting success message')
