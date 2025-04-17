@@ -10,6 +10,7 @@ namespace $.$$ {
 
 		@$mol_mem
 		email_node() {
+			console.log('sdfsdf sdfsdf 0.09005-------: Getting email node', this.domain())
 			return this.domain().email_make()
 		}
 
