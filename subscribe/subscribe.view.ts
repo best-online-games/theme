@@ -52,17 +52,14 @@ namespace $.$$ {
 
 			console.log('0.09014: Setting email value')
 			email_node.value(email)
+			email_node.date()
 			console.log('0.09015: Email value set')
 
 			console.log('0.09016: Setting success message')
 			this.message('Thank you for subscribing!')
 			console.log('0.09017: Submit process completed')
 
-			// Reset email after a short delay to allow the UI to update
-			setTimeout(() => {
-				console.log('0.09018: Resetting email field')
-				this.email('')
-			}, 0)
+			this.email('')
 
 			return null
 		}
