@@ -10,8 +10,15 @@ namespace $.$$ {
 
 		@$mol_mem
 		email_node() {
-			console.log('sdfsdf sdfsdf 0.09005-------: Getting email node', this.domain())
-			return this.domain().email_make()
+			const domain = this.domain()
+			console.log('0.09010: Domain retrieved:', domain)
+
+			if (!domain) {
+				console.log('0.09011: Domain not found, showing error')
+				this.message('Domain not found')
+			}
+			console.log('sdfsdf sdfsdf 0.09005-------: Getting email node', domain)
+			return domain!.email_make()
 		}
 
 		@$mol_mem
@@ -40,15 +47,6 @@ namespace $.$$ {
 			if (!email) {
 				console.log('0.09009: Email is empty, showing error')
 				this.message('Please enter your email')
-				return null
-			}
-
-			const domain = this.domain()
-			console.log('0.09010: Domain retrieved:', domain)
-
-			if (!domain) {
-				console.log('0.09011: Domain not found, showing error')
-				this.message('Domain not found')
 				return null
 			}
 
