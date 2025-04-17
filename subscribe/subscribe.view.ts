@@ -9,13 +9,18 @@ namespace $.$$ {
 		}
 
 		@$mol_mem
+		email_node() {
+			return this.domain().email_make()
+		}
+
+		@$mol_mem
 		email(next?: string): string {
 			console.log('0.09003: Getting/setting email:', next)
 			if (next !== undefined) {
-				console.log('0.09004: Saving email to local state')
-				this.$.$mol_state_local.value('horrorgamelanding_subscribe_email', next)
+				console.log('0.09004: Setting email value')
+				this.email_node().value(next)
 			}
-			return this.$.$mol_state_local.value('horrorgamelanding_subscribe_email') ?? ''
+			return this.email_node().value() ?? ''
 		}
 
 		@$mol_mem
@@ -46,13 +51,9 @@ namespace $.$$ {
 				return null
 			}
 
-			console.log('0.09012: Creating new email node')
-			const email_node = domain.email_make()
-			console.log('0.09013: Email node created:', email_node)
-
 			console.log('0.09014: Setting email value')
-			email_node.value(email)
-			// email_node.date()
+			this.email_node().value(email)
+			this.email_node().date(new $mol_time_moment())
 			console.log('0.09015: Email value set')
 
 			console.log('0.09016: Setting success message')
