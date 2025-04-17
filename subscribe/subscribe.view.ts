@@ -2,12 +2,17 @@ namespace $.$$ {
 	export class $horrorgamelanding_subscribe extends $.$horrorgamelanding_subscribe {
 		@$mol_mem
 		domain() {
-			return this.$.$hyoo_crus_glob.home().hall_by($horrorgamelanding_domain, {})
+			console.log('0.09001: Getting domain')
+			const domain = this.$.$hyoo_crus_glob.home().hall_by($horrorgamelanding_domain, {})
+			console.log('0.09002: Domain node created:', domain)
+			return domain
 		}
 
 		@$mol_mem
 		email(next?: string): string {
+			console.log('0.09003: Getting/setting email:', next)
 			if (next !== undefined) {
+				console.log('0.09004: Saving email to local state')
 				this.$.$mol_state_local.value('horrorgamelanding_subscribe_email', next)
 			}
 			return this.$.$mol_state_local.value('horrorgamelanding_subscribe_email') ?? ''
@@ -20,55 +25,45 @@ namespace $.$$ {
 
 		@$mol_mem
 		submit(event?: Event) {
-			console.log('0.01: Submit method started')
-			if (!event) {
-				console.log('0.02: No event provided, returning null')
-				return null
-			}
+			console.log('0.09007: Starting submit process')
+			if (!event) return null
 
-			console.log('0.03: Getting email value')
 			const email = this.email()
-			console.log('0.04: Current email value:', email)
-			
+			console.log('0.09008: Current email:', email)
+
 			if (!email) {
-				console.log('0.05: Email is empty, setting error message')
+				console.log('0.09009: Email is empty, showing error')
 				this.message('Please enter your email')
 				return null
 			}
 
-			console.log('0.06: Getting domain')
 			const domain = this.domain()
-			console.log('0.07: Domain object:', domain)
-			
+			console.log('0.09010: Domain retrieved:', domain)
+
 			if (!domain) {
-				console.log('0.08: Domain not found, setting error message')
+				console.log('0.09011: Domain not found, showing error')
 				this.message('Domain not found')
 				return null
 			}
 
-			console.log('0.09: Creating email node')
+			console.log('0.09012: Creating new email node')
 			const email_node = domain.email_make()
-			console.log('0.10: Email node created:', email_node)
-			
-			if (!email_node) {
-				console.log('0.11: Failed to create email node, setting error message')
-				this.message('Failed to create email node')
-				return null
-			}
+			console.log('0.09013: Email node created:', email_node)
 
-			console.log('0.12: Setting email value:', email)
+			console.log('0.09014: Setting email value')
 			email_node.value(email)
-			
-			console.log('0.13: Setting current date')
-			email_node.date(new $mol_time_moment())
+			console.log('0.09015: Email value set')
 
-			console.log('0.14: Setting success message')
+			console.log('0.09016: Setting success message')
 			this.message('Thank you for subscribing!')
-			
-			console.log('0.15: Clearing email field')
-			this.email('')
+			console.log('0.09017: Submit process completed')
 
-			console.log('0.16: Submit method completed successfully')
+			// Reset email after a short delay to allow the UI to update
+			setTimeout(() => {
+				console.log('0.09018: Resetting email field')
+				this.email('')
+			}, 0)
+
 			return null
 		}
 	}
