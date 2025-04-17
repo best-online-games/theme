@@ -1,15 +1,20 @@
 $horrorgamelanding_subscribe $mol_card
 	title @ \Subscribe
-	body /
-		<= Body $mol_scroll
-			sub /
-				<= Form $mol_form
-					sub /
-						<= Email $mol_string
-							hint @ \Your email
-							value?val <=> email* \
-						<= Submit $mol_button_major
-							title @ \Subscribe
-							click?event <=> submit* null
-				<= Message $mol_text
-					text <= message* \
+	content /
+		<= Form $mol_form
+			body /
+				<= Email_field $mol_form_field
+					name \E-mail
+					bid <= email_bid \
+					Content <= Email_control $mol_string
+						hint \name@domain.com
+						value? <=> email? \
+			submit? <=> submit? null
+			submit_allowed => submit_allowed
+			buttons /
+				<= Submit $mol_button_major
+					title @ \Subscribe
+					click? <=> submit? null
+					enabled <= submit_allowed
+				<= Message $mol_status
+					message <= message? \

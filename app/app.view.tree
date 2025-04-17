@@ -1,5 +1,5 @@
 $horrorgamelanding_app $mol_page
-	title \Horror Game
+	title @ \Horror Game
 	plugins /
 		<= Theme $mol_theme_auto
 	header /
