@@ -1,8 +1,0 @@
-{
-	"$horrorgamelanding_subscribe_title": "Subscribe",
-	"$horrorgamelanding_subscribe_Email_field_name": "E-mail",
-	"$horrorgamelanding_subscribe_Email_control_hint": "name@domain.com",
-	"$horrorgamelanding_subscribe_Submit_title": "Subscribe",
-	"$horrorgamelanding_subscribe_message_empty": "Please enter your email",
-	"$horrorgamelanding_subscribe_message_success": "Thank you for subscribing!"
-}

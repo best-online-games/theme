@@ -1,8 +1,0 @@
-{
-	"$horrorgamelanding_subscribe_title": "Подписаться",
-	"$horrorgamelanding_subscribe_Email_field_name": "Электронная почта",
-	"$horrorgamelanding_subscribe_Email_control_hint": "имя@домен.com",
-	"$horrorgamelanding_subscribe_Submit_title": "Подписаться",
-	"$horrorgamelanding_subscribe_message_empty": "Пожалуйста, введите ваш email",
-	"$horrorgamelanding_subscribe_message_success": "Спасибо за подписку!"
-}
