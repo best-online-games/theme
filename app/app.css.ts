@@ -1,13 +1,27 @@
 namespace $ {
-	const { per } = $mol_style_unit
+	const { per, rem } = $mol_style_unit
 
 	$mol_style_define($horrorgamelanding_app, {
+		background: {
+			color: $mol_theme.text,
+		},
+		Head: {
+			display: 'flex',
+			justifyContent: 'space-between',
+			alignItems: 'center',
+		},
+
 		Logo: {
-			maxWidth: per(100),
-			maxHeight: per(100),
+			height: rem(3),
 			width: 'auto',
-			height: 'auto',
 			objectFit: 'contain',
+			objectPosition: 'left center',
+			flexShrink: '0',
+			'@media': {
+				'(max-width: 768px)': {
+					height: rem(2.5),
+				},
+			},
 		},
 		Body_content: {
 			display: 'grid',
