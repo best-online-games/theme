@@ -4,7 +4,6 @@ namespace $.$$ {
 			return [this.Card(0), this.Card(1), this.Card(3), this.Card(4)]
 		}
 		card_url(id: string): string {
-			console.log(id)
 			if (id == '1') {
 				return 'https://neal.fun/link-images/stimulation-clicker.svg'
 			}
