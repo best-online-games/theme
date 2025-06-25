@@ -1,10 +1,7 @@
 namespace $ {
-	const { per, rem } = $mol_style_unit
+	const { rem } = $mol_style_unit
 
-	$mol_style_define($horrorgamelanding_app, {
-		background: {
-			color: $mol_theme.text,
-		},
+	$mol_style_define($bog_horrorgamelanding_app, {
 		Head: {
 			display: 'flex',
 			justifyContent: 'space-between',
@@ -27,11 +24,11 @@ namespace $ {
 			display: 'grid',
 			gridTemplateColumns: 'repeat(3, 1fr)',
 			'@media': {
-				'(max-width: 480px)': {
-					gridTemplateColumns: 'repeat(1, 1fr)',
-				},
 				'(max-width: 768px)': {
 					gridTemplateColumns: 'repeat(2, 1fr)',
+				},
+				'(max-width: 480px)': {
+					gridTemplateColumns: 'repeat(1, 1fr)',
 				},
 			},
 		},

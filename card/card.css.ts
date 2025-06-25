@@ -1,7 +1,7 @@
 namespace $ {
 	const { per } = $mol_style_unit
 
-	$mol_style_define($horrorgamelanding_card, {
+	$mol_style_define($bog_horrorgamelanding_card, {
 		width: '100%',
 		height: 'auto',
 		display: 'block',

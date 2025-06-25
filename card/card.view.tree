@@ -1,4 +1,4 @@
-$horrorgamelanding_card $mol_link
+$bog_horrorgamelanding_card $mol_link
 	sub /
 		<= image $mol_image
 			uri <=> card_url \

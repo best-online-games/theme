@@ -1,5 +1,5 @@
 namespace $.$$ {
-	export class $horrorgamelanding_app extends $.$horrorgamelanding_app {
+	export class $bog_horrorgamelanding_app extends $.$bog_horrorgamelanding_app {
 		body() {
 			return [this.Card(0), this.Card(1), this.Card(3), this.Card(4)]
 		}
