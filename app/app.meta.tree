@@ -1,2 +1,3 @@
 include \/mol/offline/install
-deploy \/horrorgamelanding/logo/logo.jpg
+deploy \/bog/horrorgamelanding/logo/logo.jpg
+deploy \/bog/horrorgamelanding/favicon.ico

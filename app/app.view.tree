@@ -1,7 +1,7 @@
 $bog_horrorgamelanding_app $mol_page
 	head /
 		<= Logo $mol_image
-			uri \horrorgamelanding/logo/logo.jpg
+			uri \bog/horrorgamelanding/logo/logo.jpg
 		<= Lights $mol_lights_toggle
 	plugins /
 		<= Theme $mol_theme_auto
