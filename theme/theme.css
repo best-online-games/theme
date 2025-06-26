@@ -56,7 +56,7 @@
 	--mol_theme_image: none;
 	--mol_theme_spirit: hsl(0deg, 0%, 100%, 0.75);
 
-	--mol_theme_back: hsl(var(--mol_theme_hue), 20%, 92%);
+	--mol_theme_back: hsl(var(--mol_theme_hue), 0%, 100%);
 	--mol_theme_card: hsl(var(--mol_theme_hue), 50%, 100%, 0.5);
 	--mol_theme_field: hsl(var(--mol_theme_hue), 50%, 100%, 0.75);
 	--mol_theme_hover: hsl(var(--mol_theme_hue), 0%, 50%, 0.1);
@@ -73,7 +73,7 @@
 @supports (color: oklch(0% 0 0deg)) {
 	[mol_theme='$mol_theme_light'],
 	:where([mol_theme='$mol_theme_light']) [mol_theme] {
-		--mol_theme_back: oklch(92% 0.01 var(--mol_theme_hue));
+		--mol_theme_back: oklch(100% 0 var(--mol_theme_hue));
 		--mol_theme_card: oklch(99% 0.01 var(--mol_theme_hue) / 0.5);
 		--mol_theme_field: oklch(100% 0 var(--mol_theme_hue) / 0.5);
 		--mol_theme_hover: oklch(70% 0 var(--mol_theme_hue) / 0.1);
