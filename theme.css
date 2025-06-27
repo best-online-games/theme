@@ -1,5 +1,5 @@
 :root {
-	--mol_theme_hue: 510deg;
+	--mol_theme_hue: 645deg;
 	--mol_theme_hue_spread: 90deg;
 
 	/* Bog theme semantic aliases */
@@ -22,37 +22,37 @@
 	--mol_theme_image: invert(1) hue-rotate(180deg);
 	--mol_theme_spirit: hsl(0deg, 0%, 0%, 0.75);
 
-	--mol_theme_back: hsl(var(--mol_theme_hue), 20%, 10%);
-	--mol_theme_card: hsl(var(--mol_theme_hue), 50%, 20%, 0.25);
-	--mol_theme_field: hsl(var(--mol_theme_hue), 50%, 8%, 0.25);
-	--mol_theme_hover: hsl(var(--mol_theme_hue), 0%, 50%, 0.1);
+	--bog_theme_back: hsl(var(--bog_theme_hue), 8%, 12%);
+	--bog_theme_card: hsl(var(--bog_theme_hue), 15%, 18%, 0.25);
+	--bog_theme_field: hsl(var(--bog_theme_hue), 12%, 10%, 0.25);
+	--bog_theme_hover: hsl(var(--bog_theme_hue), 0%, 50%, 0.1);
 
-	--mol_theme_text: hsl(var(--mol_theme_hue), 0%, 80%);
-	--mol_theme_shade: hsl(var(--mol_theme_hue), 0%, 60%, 1);
-	--mol_theme_line: hsl(var(--mol_theme_hue), 0%, 50%, 0.25);
-	--mol_theme_focus: hsl(calc(var(--mol_theme_hue) + 180deg), 100%, 65%);
+	--bog_theme_text: hsl(var(--bog_theme_hue), 8%, 85%);
+	--bog_theme_shade: hsl(var(--bog_theme_hue), 12%, 65%, 1);
+	--bog_theme_line: hsl(var(--bog_theme_hue), 8%, 50%, 0.25);
+	--bog_theme_focus: hsl(calc(var(--bog_theme_hue) + 180deg), 60%, 65%);
 
-	--mol_theme_control: hsl(var(--mol_theme_hue), 60%, 65%);
-	--mol_theme_current: hsl(calc(var(--mol_theme_hue) - var(--mol_theme_hue_spread)), 60%, 65%);
-	--mol_theme_special: hsl(calc(var(--mol_theme_hue) + var(--mol_theme_hue_spread)), 60%, 65%);
+	--bog_theme_control: hsl(var(--bog_theme_hue), 25%, 70%);
+	--bog_theme_current: hsl(calc(var(--bog_theme_hue) - var(--bog_theme_hue_spread)), 25%, 70%);
+	--bog_theme_special: hsl(calc(var(--bog_theme_hue) + var(--bog_theme_hue_spread)), 25%, 70%);
 }
 @supports (color: oklch(0% 0 0deg)) {
 	:root,
 	[mol_theme='$mol_theme_dark'],
 	:where([mol_theme='$mol_theme_dark']) [mol_theme] {
-		--mol_theme_back: oklch(20% 0.03 var(--mol_theme_hue));
-		--mol_theme_card: oklch(30% 0.05 var(--mol_theme_hue) / 0.25);
-		--mol_theme_field: oklch(15% 0 var(--mol_theme_hue) / 0.25);
-		--mol_theme_hover: oklch(70% 0 var(--mol_theme_hue) / 0.1);
+		--bog_theme_back: oklch(12% 0.02 var(--bog_theme_hue));
+		--bog_theme_card: oklch(18% 0.03 var(--bog_theme_hue) / 0.25);
+		--bog_theme_field: oklch(10% 0.015 var(--bog_theme_hue) / 0.25);
+		--bog_theme_hover: oklch(70% 0 var(--bog_theme_hue) / 0.1);
 
-		--mol_theme_text: oklch(80% 0 var(--mol_theme_hue));
-		--mol_theme_shade: oklch(60% 0 var(--mol_theme_hue));
-		--mol_theme_line: oklch(60% 0 var(--mol_theme_hue) / 0.25);
-		--mol_theme_focus: oklch(80% 0.2 calc(var(--mol_theme_hue) + 180deg));
+		--bog_theme_text: oklch(85% 0.025 var(--bog_theme_hue));
+		--bog_theme_shade: oklch(65% 0.035 var(--bog_theme_hue));
+		--bog_theme_line: oklch(50% 0.025 var(--bog_theme_hue) / 0.25);
+		--bog_theme_focus: oklch(75% 0.15 calc(var(--bog_theme_hue) + 180deg));
 
-		--mol_theme_control: oklch(70% 0.1 var(--mol_theme_hue));
-		--mol_theme_current: oklch(70% 0.2 calc(var(--mol_theme_hue) - var(--mol_theme_hue_spread)));
-		--mol_theme_special: oklch(70% 0.2 calc(var(--mol_theme_hue) + var(--mol_theme_hue_spread)));
+		--bog_theme_control: oklch(70% 0.06 var(--bog_theme_hue));
+		--bog_theme_current: oklch(70% 0.08 calc(var(--bog_theme_hue) - var(--bog_theme_hue_spread)));
+		--bog_theme_special: oklch(70% 0.08 calc(var(--bog_theme_hue) + var(--bog_theme_hue_spread)));
 	}
 }
 
