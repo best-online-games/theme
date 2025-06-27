@@ -1,132 +1,132 @@
 :root {
-	--bog_theme_hue: 240deg;
-	--bog_theme_hue_spread: 90deg;
+	--mol_theme_hue: 510deg;
+	--mol_theme_hue_spread: 90deg;
 
 	/* Bog theme semantic aliases */
-	--bog_theme_primary_hue: var(--bog_theme_hue);
-	--bog_theme_secondary_hue: calc(var(--bog_theme_hue) + var(--bog_theme_hue_spread));
-	--bog_theme_tertiary_hue: calc(var(--bog_theme_hue) - var(--bog_theme_hue_spread));
-	--bog_theme_accent_hue: calc(var(--bog_theme_hue) + 180deg);
+	--mol_theme_primary_hue: var(--mol_theme_hue);
+	--mol_theme_secondary_hue: calc(var(--mol_theme_hue) + var(--mol_theme_hue_spread));
+	--mol_theme_tertiary_hue: calc(var(--mol_theme_hue) - var(--mol_theme_hue_spread));
+	--mol_theme_accent_hue: calc(var(--mol_theme_hue) + 180deg);
 }
 
-:where([bog_theme]) {
-	color: var(--bog_theme_text);
-	fill: var(--bog_theme_text);
-	background-color: var(--bog_theme_back);
+:where([mol_theme]) {
+	color: var(--mol_theme_text);
+	fill: var(--mol_theme_text);
+	background-color: var(--mol_theme_back);
 }
 
 :root,
-[bog_theme='$bog_theme_dark'],
-:where([bog_theme='$bog_theme_dark']) [bog_theme] {
-	--bog_theme_luma: -1;
-	--bog_theme_image: invert(1) hue-rotate(180deg);
-	--bog_theme_spirit: hsl(0deg, 0%, 0%, 0.75);
+[mol_theme='$mol_theme_dark'],
+:where([mol_theme='$mol_theme_dark']) [mol_theme] {
+	--mol_theme_luma: -1;
+	--mol_theme_image: invert(1) hue-rotate(180deg);
+	--mol_theme_spirit: hsl(0deg, 0%, 0%, 0.75);
 
-	--bog_theme_back: hsl(var(--bog_theme_hue), 20%, 10%);
-	--bog_theme_card: hsl(var(--bog_theme_hue), 50%, 20%, 0.25);
-	--bog_theme_field: hsl(var(--bog_theme_hue), 50%, 8%, 0.25);
-	--bog_theme_hover: hsl(var(--bog_theme_hue), 0%, 50%, 0.1);
+	--mol_theme_back: hsl(var(--mol_theme_hue), 20%, 10%);
+	--mol_theme_card: hsl(var(--mol_theme_hue), 50%, 20%, 0.25);
+	--mol_theme_field: hsl(var(--mol_theme_hue), 50%, 8%, 0.25);
+	--mol_theme_hover: hsl(var(--mol_theme_hue), 0%, 50%, 0.1);
 
-	--bog_theme_text: hsl(var(--bog_theme_hue), 0%, 80%);
-	--bog_theme_shade: hsl(var(--bog_theme_hue), 0%, 60%, 1);
-	--bog_theme_line: hsl(var(--bog_theme_hue), 0%, 50%, 0.25);
-	--bog_theme_focus: hsl(calc(var(--bog_theme_hue) + 180deg), 100%, 65%);
+	--mol_theme_text: hsl(var(--mol_theme_hue), 0%, 80%);
+	--mol_theme_shade: hsl(var(--mol_theme_hue), 0%, 60%, 1);
+	--mol_theme_line: hsl(var(--mol_theme_hue), 0%, 50%, 0.25);
+	--mol_theme_focus: hsl(calc(var(--mol_theme_hue) + 180deg), 100%, 65%);
 
-	--bog_theme_control: hsl(var(--bog_theme_hue), 60%, 65%);
-	--bog_theme_current: hsl(calc(var(--bog_theme_hue) - var(--bog_theme_hue_spread)), 60%, 65%);
-	--bog_theme_special: hsl(calc(var(--bog_theme_hue) + var(--bog_theme_hue_spread)), 60%, 65%);
+	--mol_theme_control: hsl(var(--mol_theme_hue), 60%, 65%);
+	--mol_theme_current: hsl(calc(var(--mol_theme_hue) - var(--mol_theme_hue_spread)), 60%, 65%);
+	--mol_theme_special: hsl(calc(var(--mol_theme_hue) + var(--mol_theme_hue_spread)), 60%, 65%);
 }
 @supports (color: oklch(0% 0 0deg)) {
 	:root,
-	[bog_theme='$bog_theme_dark'],
-	:where([bog_theme='$bog_theme_dark']) [bog_theme] {
-		--bog_theme_back: oklch(20% 0.03 var(--bog_theme_hue));
-		--bog_theme_card: oklch(30% 0.05 var(--bog_theme_hue) / 0.25);
-		--bog_theme_field: oklch(15% 0 var(--bog_theme_hue) / 0.25);
-		--bog_theme_hover: oklch(70% 0 var(--bog_theme_hue) / 0.1);
+	[mol_theme='$mol_theme_dark'],
+	:where([mol_theme='$mol_theme_dark']) [mol_theme] {
+		--mol_theme_back: oklch(20% 0.03 var(--mol_theme_hue));
+		--mol_theme_card: oklch(30% 0.05 var(--mol_theme_hue) / 0.25);
+		--mol_theme_field: oklch(15% 0 var(--mol_theme_hue) / 0.25);
+		--mol_theme_hover: oklch(70% 0 var(--mol_theme_hue) / 0.1);
 
-		--bog_theme_text: oklch(80% 0 var(--bog_theme_hue));
-		--bog_theme_shade: oklch(60% 0 var(--bog_theme_hue));
-		--bog_theme_line: oklch(60% 0 var(--bog_theme_hue) / 0.25);
-		--bog_theme_focus: oklch(80% 0.2 calc(var(--bog_theme_hue) + 180deg));
+		--mol_theme_text: oklch(80% 0 var(--mol_theme_hue));
+		--mol_theme_shade: oklch(60% 0 var(--mol_theme_hue));
+		--mol_theme_line: oklch(60% 0 var(--mol_theme_hue) / 0.25);
+		--mol_theme_focus: oklch(80% 0.2 calc(var(--mol_theme_hue) + 180deg));
 
-		--bog_theme_control: oklch(70% 0.1 var(--bog_theme_hue));
-		--bog_theme_current: oklch(70% 0.2 calc(var(--bog_theme_hue) - var(--bog_theme_hue_spread)));
-		--bog_theme_special: oklch(70% 0.2 calc(var(--bog_theme_hue) + var(--bog_theme_hue_spread)));
+		--mol_theme_control: oklch(70% 0.1 var(--mol_theme_hue));
+		--mol_theme_current: oklch(70% 0.2 calc(var(--mol_theme_hue) - var(--mol_theme_hue_spread)));
+		--mol_theme_special: oklch(70% 0.2 calc(var(--mol_theme_hue) + var(--mol_theme_hue_spread)));
 	}
 }
 
-[bog_theme='$bog_theme_light'],
-:where([bog_theme='$bog_theme_light']) [bog_theme] {
-	--bog_theme_luma: 1;
-	--bog_theme_image: none;
-	--bog_theme_spirit: hsl(0deg, 0%, 100%, 0.75);
+[mol_theme='$mol_theme_light'],
+:where([mol_theme='$mol_theme_light']) [mol_theme] {
+	--mol_theme_luma: 1;
+	--mol_theme_image: none;
+	--mol_theme_spirit: hsl(0deg, 0%, 100%, 0.75);
 
-	--bog_theme_back: hsl(var(--bog_theme_hue), 0%, 100%);
-	--bog_theme_card: hsl(var(--bog_theme_hue), 50%, 100%, 0.5);
-	--bog_theme_field: hsl(var(--bog_theme_hue), 50%, 100%, 0.75);
-	--bog_theme_hover: hsl(var(--bog_theme_hue), 0%, 50%, 0.1);
+	--mol_theme_back: hsl(var(--mol_theme_hue), 0%, 100%);
+	--mol_theme_card: hsl(var(--mol_theme_hue), 50%, 100%, 0.5);
+	--mol_theme_field: hsl(var(--mol_theme_hue), 50%, 100%, 0.75);
+	--mol_theme_hover: hsl(var(--mol_theme_hue), 0%, 50%, 0.1);
 
-	--bog_theme_text: hsl(var(--bog_theme_hue), 0%, 0%);
-	--bog_theme_shade: hsl(var(--bog_theme_hue), 0%, 40%, 1);
-	--bog_theme_line: hsl(var(--bog_theme_hue), 0%, 50%, 0.25);
-	--bog_theme_focus: hsl(calc(var(--bog_theme_hue) + 180deg), 100%, 40%);
+	--mol_theme_text: hsl(var(--mol_theme_hue), 0%, 0%);
+	--mol_theme_shade: hsl(var(--mol_theme_hue), 0%, 40%, 1);
+	--mol_theme_line: hsl(var(--mol_theme_hue), 0%, 50%, 0.25);
+	--mol_theme_focus: hsl(calc(var(--mol_theme_hue) + 180deg), 100%, 40%);
 
-	--bog_theme_control: hsl(var(--bog_theme_hue), 80%, 30%);
-	--bog_theme_current: hsl(calc(var(--bog_theme_hue) - var(--bog_theme_hue_spread)), 80%, 30%);
-	--bog_theme_special: hsl(calc(var(--bog_theme_hue) + var(--bog_theme_hue_spread)), 80%, 30%);
+	--mol_theme_control: hsl(var(--mol_theme_hue), 80%, 30%);
+	--mol_theme_current: hsl(calc(var(--mol_theme_hue) - var(--mol_theme_hue_spread)), 80%, 30%);
+	--mol_theme_special: hsl(calc(var(--mol_theme_hue) + var(--mol_theme_hue_spread)), 80%, 30%);
 }
 @supports (color: oklch(0% 0 0deg)) {
-	[bog_theme='$bog_theme_light'],
-	:where([bog_theme='$bog_theme_light']) [bog_theme] {
-		--bog_theme_back: oklch(100% 0 var(--bog_theme_hue));
-		--bog_theme_card: oklch(99% 0.01 var(--bog_theme_hue) / 0.5);
-		--bog_theme_field: oklch(100% 0 var(--bog_theme_hue) / 0.5);
-		--bog_theme_hover: oklch(70% 0 var(--bog_theme_hue) / 0.1);
+	[mol_theme='$mol_theme_light'],
+	:where([mol_theme='$mol_theme_light']) [mol_theme] {
+		--mol_theme_back: oklch(100% 0 var(--mol_theme_hue));
+		--mol_theme_card: oklch(99% 0.01 var(--mol_theme_hue) / 0.5);
+		--mol_theme_field: oklch(100% 0 var(--mol_theme_hue) / 0.5);
+		--mol_theme_hover: oklch(70% 0 var(--mol_theme_hue) / 0.1);
 
-		--bog_theme_text: oklch(20% 0 var(--bog_theme_hue));
-		--bog_theme_shade: oklch(60% 0 var(--bog_theme_hue));
-		--bog_theme_line: oklch(50% 0 var(--bog_theme_hue) / 0.25);
-		--bog_theme_focus: oklch(60% 0.2 calc(var(--bog_theme_hue) + 180deg));
+		--mol_theme_text: oklch(20% 0 var(--mol_theme_hue));
+		--mol_theme_shade: oklch(60% 0 var(--mol_theme_hue));
+		--mol_theme_line: oklch(50% 0 var(--mol_theme_hue) / 0.25);
+		--mol_theme_focus: oklch(60% 0.2 calc(var(--mol_theme_hue) + 180deg));
 
-		--bog_theme_control: oklch(40% 0.15 var(--bog_theme_hue));
-		--bog_theme_current: oklch(50% 0.2 calc(var(--bog_theme_hue) - var(--bog_theme_hue_spread)));
-		--bog_theme_special: oklch(50% 0.2 calc(var(--bog_theme_hue) + var(--bog_theme_hue_spread)));
+		--mol_theme_control: oklch(40% 0.15 var(--mol_theme_hue));
+		--mol_theme_current: oklch(50% 0.2 calc(var(--mol_theme_hue) - var(--mol_theme_hue_spread)));
+		--mol_theme_special: oklch(50% 0.2 calc(var(--mol_theme_hue) + var(--mol_theme_hue_spread)));
 	}
 }
 
-:where(:root, [bog_theme='$bog_theme_dark']) [bog_theme='$bog_theme_base'] {
-	--bog_theme_back: oklch(25% 0.075 var(--bog_theme_hue));
-	--bog_theme_card: oklch(35% 0.1 var(--bog_theme_hue) / 0.25);
+:where(:root, [mol_theme='$mol_theme_dark']) [mol_theme='$mol_theme_base'] {
+	--mol_theme_back: oklch(25% 0.075 var(--mol_theme_hue));
+	--mol_theme_card: oklch(35% 0.1 var(--mol_theme_hue) / 0.25);
 }
-:where([bog_theme='$bog_theme_light']) [bog_theme='$bog_theme_base'] {
-	--bog_theme_back: oklch(85% 0.075 var(--bog_theme_hue));
-	--bog_theme_card: oklch(98% 0.03 var(--bog_theme_hue) / 0.25);
-}
-
-:where(:root, [bog_theme='$bog_theme_dark']) [bog_theme='$bog_theme_current'] {
-	--bog_theme_back: oklch(25% 0.05 calc(var(--bog_theme_hue) - var(--bog_theme_hue_spread)));
-	--bog_theme_card: oklch(35% 0.1 calc(var(--bog_theme_hue) - var(--bog_theme_hue_spread)) / 0.25);
-}
-:where([bog_theme='$bog_theme_light']) [bog_theme='$bog_theme_current'] {
-	--bog_theme_back: oklch(85% 0.05 calc(var(--bog_theme_hue) - var(--bog_theme_hue_spread)));
-	--bog_theme_card: oklch(98% 0.03 calc(var(--bog_theme_hue) - var(--bog_theme_hue_spread)) / 0.25);
+:where([mol_theme='$mol_theme_light']) [mol_theme='$mol_theme_base'] {
+	--mol_theme_back: oklch(85% 0.075 var(--mol_theme_hue));
+	--mol_theme_card: oklch(98% 0.03 var(--mol_theme_hue) / 0.25);
 }
 
-:where(:root, [bog_theme='$bog_theme_dark']) [bog_theme='$bog_theme_special'] {
-	--bog_theme_back: oklch(25% 0.05 calc(var(--bog_theme_hue) + var(--bog_theme_hue_spread)));
-	--bog_theme_card: oklch(35% 0.1 calc(var(--bog_theme_hue) + var(--bog_theme_hue_spread)) / 0.25);
+:where(:root, [mol_theme='$mol_theme_dark']) [mol_theme='$mol_theme_current'] {
+	--mol_theme_back: oklch(25% 0.05 calc(var(--mol_theme_hue) - var(--mol_theme_hue_spread)));
+	--mol_theme_card: oklch(35% 0.1 calc(var(--mol_theme_hue) - var(--mol_theme_hue_spread)) / 0.25);
 }
-:where([bog_theme='$bog_theme_light']) [bog_theme='$bog_theme_special'] {
-	--bog_theme_back: oklch(85% 0.05 calc(var(--bog_theme_hue) + var(--bog_theme_hue_spread)));
-	--bog_theme_card: oklch(98% 0.03 calc(var(--bog_theme_hue) + var(--bog_theme_hue_spread)) / 0.25);
+:where([mol_theme='$mol_theme_light']) [mol_theme='$mol_theme_current'] {
+	--mol_theme_back: oklch(85% 0.05 calc(var(--mol_theme_hue) - var(--mol_theme_hue_spread)));
+	--mol_theme_card: oklch(98% 0.03 calc(var(--mol_theme_hue) - var(--mol_theme_hue_spread)) / 0.25);
 }
 
-:where(:root, [bog_theme='$bog_theme_dark']) [bog_theme='$bog_theme_accent'] {
-	--bog_theme_back: oklch(35% 0.1 calc(var(--bog_theme_hue) + 180deg));
-	--bog_theme_card: oklch(45% 0.15 calc(var(--bog_theme_hue) + 180deg) / 0.25);
+:where(:root, [mol_theme='$mol_theme_dark']) [mol_theme='$mol_theme_special'] {
+	--mol_theme_back: oklch(25% 0.05 calc(var(--mol_theme_hue) + var(--mol_theme_hue_spread)));
+	--mol_theme_card: oklch(35% 0.1 calc(var(--mol_theme_hue) + var(--mol_theme_hue_spread)) / 0.25);
 }
-:where([bog_theme='$bog_theme_light']) [bog_theme='$bog_theme_accent'] {
-	--bog_theme_back: oklch(83% 0.1 calc(var(--bog_theme_hue) + 180deg));
-	--bog_theme_card: oklch(98% 0.03 calc(var(--bog_theme_hue) + 180deg) / 0.25);
+:where([mol_theme='$mol_theme_light']) [mol_theme='$mol_theme_special'] {
+	--mol_theme_back: oklch(85% 0.05 calc(var(--mol_theme_hue) + var(--mol_theme_hue_spread)));
+	--mol_theme_card: oklch(98% 0.03 calc(var(--mol_theme_hue) + var(--mol_theme_hue_spread)) / 0.25);
+}
+
+:where(:root, [mol_theme='$mol_theme_dark']) [mol_theme='$mol_theme_accent'] {
+	--mol_theme_back: oklch(35% 0.1 calc(var(--mol_theme_hue) + 180deg));
+	--mol_theme_card: oklch(45% 0.15 calc(var(--mol_theme_hue) + 180deg) / 0.25);
+}
+:where([mol_theme='$mol_theme_light']) [mol_theme='$mol_theme_accent'] {
+	--mol_theme_back: oklch(83% 0.1 calc(var(--mol_theme_hue) + 180deg));
+	--mol_theme_card: oklch(98% 0.03 calc(var(--mol_theme_hue) + 180deg) / 0.25);
 }
