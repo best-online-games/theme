@@ -6,6 +6,10 @@ $bog_theme_demo $mol_example_large
 		--mol_theme_hue_spread <= hue_spread_deg \
 	sub /
 		<= Config $mol_row sub /
+			<= Theme_switcher $mol_form_field
+				name \Theme
+				Content <= Theme_toggle $bog_theme_toggle
+					theme_auto <= Theme
 			<= Hue_field $mol_form_field
 				name \Hue
 				Content <= Hue $mol_number
@@ -16,9 +20,6 @@ $bog_theme_demo $mol_example_large
 				Content <= Hue_spread $mol_number
 					value? <=> hue_spread? 90
 					precision_change 15
-			<= Lights_field $mol_form_field
-				name \Lights
-				Content <= Lights $mol_lights_toggle
 		<= Scroll $mol_scroll sub /
 			<= Cases $bog_theme_demo_case
 				title \Current light
@@ -51,5 +52,5 @@ $bog_theme_demo_case $mol_view
 			<= Hover $mol_button_copy title \$mol_theme.hover
 			<= Current $mol_button_copy title \$mol_theme.curent
 			<= Special $mol_button_copy title \$mol_theme.special
-		^ inner 
+		^ inner
 	inner /

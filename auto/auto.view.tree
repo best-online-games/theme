@@ -1,3 +1,4 @@
-$bog_theme_auto $mol_theme_auto
-	light \$mol_theme_light
-	dark \$mol_theme_dark
+$bog_theme_auto $mol_plugin
+	themes <= themes_default /
+	theme_index? 0
+	attr * mol_theme <= theme \

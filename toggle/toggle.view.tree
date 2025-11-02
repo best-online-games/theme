@@ -1,0 +1,7 @@
+$bog_theme_toggle $mol_button_minor
+	sub /
+		<= Icon $mol_icon_palette
+		<= Label $mol_dimmer
+			haystack <= theme_name \
+	hint @ \Cycle through themes
+	click? <=> toggle?
