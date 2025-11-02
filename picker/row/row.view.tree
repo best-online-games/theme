@@ -1,0 +1,7 @@
+$bog_theme_picker_row $mol_button_minor
+	theme_name \
+	title <= theme_name
+	click?event <=> clicked?event null
+	event *
+		^
+		pointerenter?event <=> hovered?event null

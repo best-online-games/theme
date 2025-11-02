@@ -1,0 +1,120 @@
+namespace $.$$ {
+    /**
+     * Theme picker popup with search and list
+     */
+    export class $bog_theme_picker extends $.$bog_theme_picker {
+        @$mol_mem
+        theme_rows() {
+            const themes = this.filtered_themes()
+            return themes.map((_, index) => this.theme_row(index))
+        }
+
+        @$mol_mem
+        filtered_themes() {
+            const query = this.query().toLowerCase().trim()
+            const themes = this.$.$bog_theme_names
+
+            return query ? themes.filter(name => name.toLowerCase().includes(query)) : [...themes]
+        }
+
+        theme_name(index: number) {
+            return this.filtered_themes()[index] || ''
+        }
+
+        theme_clicked(index: number, event?: MouseEvent) {
+            if (!event) return null
+
+            const themes = this.filtered_themes()
+            const theme_name = themes[index]
+            const global_index = this.$.$bog_theme_names.indexOf(theme_name)
+
+            if (global_index !== -1) {
+                this.theme_auto().theme_set(global_index)
+            }
+
+            // Close popup
+            this.showed(false)
+
+            return null
+        }
+
+        theme_hovered(index: number, event?: PointerEvent) {
+            if (!event) return null
+
+            const themes = this.filtered_themes()
+            const theme_name = themes[index]
+            const global_index = this.$.$bog_theme_names.indexOf(theme_name)
+
+            if (global_index !== -1) {
+                this.theme_auto().theme_set(global_index)
+            }
+
+            // Update focused index on hover
+            this.focused_index(index)
+
+            return null
+        }
+
+        key_down(event?: KeyboardEvent) {
+            if (!event) return null
+
+            const themes = this.filtered_themes()
+            const current = this.focused_index()
+
+            switch (event.key) {
+                case 'ArrowDown':
+                    event.preventDefault()
+                    const next = current < themes.length - 1 ? current + 1 : 0
+                    this.focused_index(next)
+                    this.preview_theme(next)
+                    break
+
+                case 'ArrowUp':
+                    event.preventDefault()
+                    const prev = current > 0 ? current - 1 : themes.length - 1
+                    this.focused_index(prev)
+                    this.preview_theme(prev)
+                    break
+
+                case 'Enter':
+                    event.preventDefault()
+                    if (current >= 0 && current < themes.length) {
+                        this.select_theme(current)
+                    }
+                    break
+
+                case 'Escape':
+                    event.preventDefault()
+                    this.showed(false)
+                    break
+            }
+
+            return null
+        }
+
+        @$mol_action
+        private select_theme(index: number) {
+            const themes = this.filtered_themes()
+            const theme_name = themes[index]
+            const global_index = this.$.$bog_theme_names.indexOf(theme_name)
+
+            if (global_index !== -1) {
+                this.theme_auto().theme_set(global_index)
+            }
+
+            // Close popup
+            this.showed(false)
+        }
+
+        @$mol_action
+        private preview_theme(index: number) {
+            const themes = this.filtered_themes()
+            const theme_name = themes[index]
+            const global_index = this.$.$bog_theme_names.indexOf(theme_name)
+
+            if (global_index !== -1) {
+                this.theme_auto().theme_set(global_index)
+            }
+        }
+    }
+}

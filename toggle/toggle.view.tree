@@ -4,3 +4,11 @@ $bog_theme_toggle $mol_button_minor
 		<= Icon $mol_icon_brightness_4
 	hint @ \Cycle through themes
 	click?event <=> clicked?event null
+	event *
+		^
+		pointerdown?event <=> press_start?event null
+		pointermove?event <=> press_move?event null
+		pointerup?event <=> press_end?event null
+		pointercancel?event <=> press_cancel?event null
+		lostpointercapture?event <=> press_lost?event null
+	picker_showed?val false
