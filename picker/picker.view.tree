@@ -1,9 +1,9 @@
-$bog_theme_picker $mol_pop
-	Anchor $mol_view
+$bog_theme_picker $mol_list
 	theme_auto $bog_theme_auto
+	showed?val false
 	query?val \
 	focused_index?val -1
-	body /
+	rows /
 		<= Search $mol_string
 			value?val <=> query?val
 			hint @ \Search themes

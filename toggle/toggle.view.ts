@@ -66,6 +66,7 @@ namespace $.$$ {
         press_end(event?: PointerEvent) {
             if (!event) return null
 
+            console.log('press_end triggered, is_long_press:', this.is_long_press)
             this.clear_press_timer()
 
             return null
@@ -96,7 +97,9 @@ namespace $.$$ {
 
         private on_long_press() {
             // Show popup picker
-            this.picker_showed(true)
+            console.log('Long press triggered, showing picker')
+            this.showed(true)
+            console.log('showed set to:', this.showed())
         }
     }
 }

@@ -1,14 +1,20 @@
-$bog_theme_toggle $mol_button_minor
+$bog_theme_toggle $mol_pop
 	theme_auto $bog_theme_auto
-	sub /
-		<= Icon $mol_icon_brightness_4
-	hint @ \Cycle through themes
-	click?event <=> clicked?event null
-	event *
-		^
-		pointerdown?event <=> press_start?event null
-		pointermove?event <=> press_move?event null
-		pointerup?event <=> press_end?event null
-		pointercancel?event <=> press_cancel?event null
-		lostpointercapture?event <=> press_lost?event null
-	picker_showed?val false
+	showed?val false
+	align \bottom_right
+	Anchor $mol_button_minor
+		sub /
+			<= Icon $mol_icon_brightness_4
+		hint @ \Cycle through themes
+		click?event <=> clicked?event null
+		event *
+			^
+			pointerdown?event <=> press_start?event null
+			pointermove?event <=> press_move?event null
+			pointerup?event <=> press_end?event null
+			pointercancel?event <=> press_cancel?event null
+			lostpointercapture?event <=> press_lost?event null
+	bubble_content /
+		<= Picker $bog_theme_picker
+			theme_auto <= theme_auto
+			showed?val <= showed?val
