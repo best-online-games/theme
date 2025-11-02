@@ -1,4 +1,7 @@
 $bog_theme_auto $mol_plugin
 	themes <= themes_default /
 	theme_index? 0
+	theme_next? null
+	theme_prev? null
+	theme_set? null
 	attr * mol_theme <= theme \

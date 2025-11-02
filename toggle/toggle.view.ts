@@ -1,33 +1,28 @@
 namespace $.$$ {
-	/**
-	 * Toggle button that cycles through available themes.
-	 * Requires $bog_theme_auto plugin to be active.
-	 */
-	export class $bog_theme_toggle extends $.$bog_theme_toggle {
+    /**
+     * Toggle button that cycles through available themes.
+     * Requires $bog_theme_auto plugin to be active.
+     * Click - cycle to next theme
+     * Right click / Long press - show theme picker popup
+     */
+    export class $bog_theme_toggle extends $.$bog_theme_toggle {
+        clicked(event?: MouseEvent) {
+            if (!event) return null
 
-		/**
-		 * Reference to theme auto plugin.
-		 * Should be overridden to point to actual plugin instance.
-		 */
-		theme_auto(): $bog_theme_auto | null {
-			return null
-		}
+            this.theme_auto().theme_next()
 
-		@$mol_mem
-		theme_name() {
-			const auto = this.theme_auto()
-			if (!auto) return 'No theme plugin'
+            return null
+        }
 
-			const theme = auto.theme()
-			// Extract theme name without prefix: $mol_theme_dark -> dark
-			return theme.replace(/^\$mol_theme_/, '')
-		}
+        context_menu(event?: MouseEvent) {
+            if (!event) return null
 
-		toggle() {
-			const auto = this.theme_auto()
-			if (!auto) return
+            event.preventDefault()
+            event.stopPropagation()
 
-			auto.theme_next()
-		}
-	}
+            this.picker_showed(true)
+
+            return null
+        }
+    }
 }

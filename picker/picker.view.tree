@@ -1,0 +1,21 @@
+$bog_theme_picker $mol_pop
+	align_hor \left
+	align_ver \bottom
+	Anchor $mol_view
+	theme_auto $bog_theme_auto
+	query? \
+	focused_index? -1
+	Body <= Picker_body $mol_list
+		rows /
+			<= Search $mol_search
+				query? <=> query?
+				hint @ \Search themes
+			<= Themes $mol_list
+				rows <= theme_rows /
+
+$bog_theme_picker_item $mol_button_minor
+	theme_name \
+	focused? false
+	attr *
+		^
+		mol_theme_picker_focused <= focused

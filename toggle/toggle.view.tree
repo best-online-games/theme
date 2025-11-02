@@ -1,7 +1,11 @@
 $bog_theme_toggle $mol_button_minor
+	theme_auto $bog_theme_auto
 	sub /
-		<= Icon $mol_icon_palette
-		<= Label $mol_dimmer
-			haystack <= theme_name \
+		<= Icon $mol_icon_brightness_4
+		<= Picker $bog_theme_picker
+			theme_auto <= theme_auto
+			showed? <=> picker_showed? false
+			Anchor <= Icon
 	hint @ \Cycle through themes
-	click? <=> toggle?
+	click?event <=> clicked?event null
+	event_contextmenu?event <=> context_menu?event null
