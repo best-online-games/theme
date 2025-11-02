@@ -1,14 +1,14 @@
 $bog_theme_demo $mol_example_large
 	plugins /
 		<= Theme $bog_theme_auto
+	Theme_picker $bog_theme_picker
+		theme_auto <= Theme
+		Anchor <= Theme_toggle
+		showed?val <=> picker_showed?val false
 	style *
 		--mol_theme_hue <= hue_deg \
 		--mol_theme_hue_spread <= hue_spread_deg \
 	sub /
-		<= Theme_picker $bog_theme_picker
-			theme_auto <= Theme
-			Anchor <= Theme_toggle
-			showed?val <=> picker_showed?val false
 		<= Config $mol_row sub /
 			<= Theme_switcher $mol_form_field
 				name \Theme
