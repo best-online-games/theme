@@ -15,6 +15,9 @@ $bog_theme_toggle $mol_pop
 			pointercancel?event <=> press_cancel?event null
 			lostpointercapture?event <=> press_lost?event null
 	bubble_content /
+		<= Backdrop $mol_view
+			event *
+				click?event <=> backdrop_click?event null
 		<= Picker $bog_theme_picker
 			theme_auto <= theme_auto
 			close? <=> picker_close? null

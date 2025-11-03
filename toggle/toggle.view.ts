@@ -116,5 +116,14 @@ namespace $.$$ {
         picker_close() {
             this.showed(false)
         }
+
+        backdrop_click(event?: MouseEvent) {
+            if (!event) return null
+
+            console.log('backdrop_click')
+            this.showed(false)
+
+            return null
+        }
     }
 }

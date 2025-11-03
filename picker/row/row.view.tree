@@ -4,3 +4,6 @@ $bog_theme_picker_row $mol_button_minor
 	attr *
 		^
 		bog_theme_picker_row_focused <= focused_str \
+	event *
+		^
+		pointerenter?event <=> hover?event null

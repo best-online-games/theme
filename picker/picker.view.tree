@@ -3,6 +3,11 @@ $bog_theme_picker $mol_scroll
 	close? null
 	query?val \
 	focused_index?val -1
+	Theme_row* $bog_theme_picker_row
+		theme_name <= theme_name* \
+		focused <= theme_focused* false
+		click?event <=> theme_select*?event null
+		hover?event <=> theme_hover*?event null
 	sub /
 		<= Content $mol_list rows /
 			<= Search $mol_string
@@ -11,12 +16,4 @@ $bog_theme_picker $mol_scroll
 			<= Theme_list $mol_list
 				rows <= theme_rows /
 	event *
-		^
 		keydown?event <=> key_down?event null
-	Theme_row* $bog_theme_picker_row
-		theme_name <= theme_name* \
-		focused <= theme_focused* false
-		click?event <=> theme_select*?event null
-		event *
-			^
-			pointerenter?event <=> theme_hover*?event null
