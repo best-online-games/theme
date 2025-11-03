@@ -23,14 +23,7 @@ namespace $ {
      * Available theme names.
      * Add new theme to theme.css and add its name here.
      */
-    export const $bog_theme_names = [
-        '$mol_theme_light',
-        '$mol_theme_dark',
-        '$mol_theme_base',
-        '$mol_theme_current',
-        '$mol_theme_special',
-        '$mol_theme_accent',
-    ] as const
+    export const $bog_theme_names = ['$mol_theme_light', '$mol_theme_dark', '$mol_theme_upwork'] as const
 
     /**
      * Type-safe theme name
