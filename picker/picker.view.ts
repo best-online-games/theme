@@ -54,6 +54,11 @@ namespace $.$$ {
         theme_hover(index: number, event?: PointerEvent) {
             if (!event) return null
 
+            console.log('theme_hover:', index)
+
+            // Update focused index on hover (this will apply preview via theme_focused)
+            this.focused_index(index)
+
             const themes = this.filtered_themes()
             const theme_name = themes[index]
             const global_index = this.$.$bog_theme_names.indexOf(theme_name)
@@ -61,9 +66,6 @@ namespace $.$$ {
             if (global_index !== -1) {
                 this.theme_auto().theme_set(global_index)
             }
-
-            // Update focused index on hover
-            this.focused_index(index)
 
             return null
         }
