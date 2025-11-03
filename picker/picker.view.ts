@@ -58,25 +58,34 @@ namespace $.$$ {
         key_down(event?: KeyboardEvent) {
             if (!event) return null
 
+            console.log('picker key_down:', event.key, 'target:', event.target)
+
             const themes = this.filtered_themes()
             const current = this.focused_index()
 
+            console.log('current index:', current, 'themes count:', themes.length)
+
             switch (event.key) {
                 case 'ArrowDown':
+                    console.log('ArrowDown pressed')
                     event.preventDefault()
                     const next = current < themes.length - 1 ? current + 1 : 0
+                    console.log('Moving to index:', next)
                     this.focused_index(next)
                     this.preview_theme(next)
                     break
 
                 case 'ArrowUp':
+                    console.log('ArrowUp pressed')
                     event.preventDefault()
                     const prev = current > 0 ? current - 1 : themes.length - 1
+                    console.log('Moving to index:', prev)
                     this.focused_index(prev)
                     this.preview_theme(prev)
                     break
 
                 case 'Enter':
+                    console.log('Enter pressed')
                     event.preventDefault()
                     if (current >= 0 && current < themes.length) {
                         this.select_theme(current)
@@ -84,6 +93,7 @@ namespace $.$$ {
                     break
 
                 case 'Escape':
+                    console.log('Escape pressed')
                     event.preventDefault()
                     this.close()
                     break
