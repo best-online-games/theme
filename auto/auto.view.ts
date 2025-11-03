@@ -14,6 +14,11 @@ namespace $.$$ {
         }
 
         @$mol_mem
+        theme_index(next?: number) {
+            return this.$.$mol_state_local.value(`${this}.theme_index()`, next) ?? 0
+        }
+
+        @$mol_mem
         theme() {
             const themes = this.themes()
             const index = this.theme_index()
