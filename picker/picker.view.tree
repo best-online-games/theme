@@ -7,7 +7,7 @@ $bog_theme_picker $mol_scroll
 		<= Content $mol_list rows /
 			<= Search $mol_string
 				value?val <=> query?val
-				hint @ \Search themes
+				hint @ \Just start typing
 			<= Theme_list $mol_list
 				rows <= theme_rows /
 	event *
