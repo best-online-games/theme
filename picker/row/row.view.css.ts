@@ -6,7 +6,7 @@ namespace $.$$ {
                     background: {
                         color: $mol_theme.hover,
                     },
-                    boxShadow: `inset 0 0 0 2px ${$mol_theme.focus}`,
+                    boxShadow: `inset 0 0 0 1px #000, inset 0 0 0 2px #fff`,
                 },
             },
         },
