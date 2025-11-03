@@ -96,19 +96,15 @@ namespace $.$$ {
 
         private on_long_press() {
             // Show popup picker
-            console.log('Long press - opening popup')
             this.showed(true)
 
             // Try to focus search field
             setTimeout(() => {
                 try {
-                    console.log('Trying to focus search field')
                     const search = this.Picker().Search()
-                    console.log('Search component:', search)
                     search.focused(true)
-                    console.log('Search focused set to true')
                 } catch (e) {
-                    console.log('Error focusing search:', e)
+                    // Ignore focus errors
                 }
             }, 100)
         }
@@ -120,7 +116,6 @@ namespace $.$$ {
         backdrop_click(event?: MouseEvent) {
             if (!event) return null
 
-            console.log('backdrop_click')
             this.showed(false)
 
             return null
