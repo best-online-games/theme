@@ -16,4 +16,5 @@ $bog_theme_picker $mol_scroll
 			<= Theme_list $mol_list
 				rows <= theme_rows /
 	event *
+		^
 		keydown?event <=> key_down?event null

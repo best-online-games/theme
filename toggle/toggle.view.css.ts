@@ -10,9 +10,8 @@ namespace $.$$ {
             maxWidth: 'none !important' as any,
             maxHeight: 'none !important' as any,
             padding: '0 !important' as any,
-            background: 'none',
             boxShadow: 'none',
-            border: 'none',
+            background: 'transparent !important' as any,
         },
         Backdrop: {
             position: 'fixed',
@@ -21,6 +20,7 @@ namespace $.$$ {
             width: '100vw',
             height: '100vh',
             zIndex: 1,
+            opacity: 0,
         },
         Picker: {
             position: 'fixed',
