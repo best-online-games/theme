@@ -30,6 +30,10 @@ namespace $.$$ {
             return this.filtered_themes()[index] || ''
         }
 
+        theme_focused(index: number) {
+            return this.focused_index() === index
+        }
+
         theme_select(index: number, event?: MouseEvent) {
             if (!event) return null
 

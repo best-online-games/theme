@@ -1,3 +1,6 @@
 $bog_theme_picker_row $mol_button_minor
 	theme_name \
 	title <= theme_name
+	attr *
+		^
+		bog_theme_picker_row_focused <= focused_str \

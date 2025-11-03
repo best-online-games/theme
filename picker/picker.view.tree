@@ -15,6 +15,7 @@ $bog_theme_picker $mol_scroll
 		keydown?event <=> key_down?event null
 	Theme_row* $bog_theme_picker_row
 		theme_name <= theme_name* \
+		focused <= theme_focused* false
 		click?event <=> theme_select*?event null
 		event *
 			^
