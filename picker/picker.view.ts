@@ -14,7 +14,16 @@ namespace $.$$ {
             const query = this.query().toLowerCase().trim()
             const themes = this.$.$bog_theme_names
 
-            return query ? themes.filter(name => name.toLowerCase().includes(query)) : [...themes]
+            const filtered = query ? themes.filter(name => name.toLowerCase().includes(query)) : [...themes]
+
+            // Reset focused index when filter changes
+            const current = this.focused_index()
+            if (current >= filtered.length) {
+                console.log('Resetting focused_index from', current, 'to -1 (filtered length:', filtered.length, ')')
+                this.focused_index(-1)
+            }
+
+            return filtered
         }
 
         theme_name(index: number) {
@@ -61,31 +70,49 @@ namespace $.$$ {
             console.log('picker key_down:', event.key, 'target:', event.target)
 
             const themes = this.filtered_themes()
-            const current = this.focused_index()
+            let current = this.focused_index()
 
-            console.log('current index:', current, 'themes count:', themes.length)
+            console.log('current index BEFORE:', current, 'themes count:', themes.length)
 
             switch (event.key) {
                 case 'ArrowDown':
                     console.log('ArrowDown pressed')
                     event.preventDefault()
-                    const next = current < themes.length - 1 ? current + 1 : 0
-                    console.log('Moving to index:', next)
-                    this.focused_index(next)
-                    this.preview_theme(next)
+                    event.stopPropagation()
+
+                    // If focus is on search (-1), start from first item
+                    if (current === -1) {
+                        current = 0
+                    } else {
+                        current = current < themes.length - 1 ? current + 1 : 0
+                    }
+
+                    console.log('Moving to index:', current)
+                    this.focused_index(current)
+                    console.log('focused_index AFTER set:', this.focused_index())
+                    this.preview_theme(current)
                     break
 
                 case 'ArrowUp':
                     console.log('ArrowUp pressed')
                     event.preventDefault()
-                    const prev = current > 0 ? current - 1 : themes.length - 1
-                    console.log('Moving to index:', prev)
-                    this.focused_index(prev)
-                    this.preview_theme(prev)
+                    event.stopPropagation()
+
+                    // If focus is on search (-1), start from last item
+                    if (current === -1) {
+                        current = themes.length - 1
+                    } else {
+                        current = current > 0 ? current - 1 : themes.length - 1
+                    }
+
+                    console.log('Moving to index:', current)
+                    this.focused_index(current)
+                    console.log('focused_index AFTER set:', this.focused_index())
+                    this.preview_theme(current)
                     break
 
                 case 'Enter':
-                    console.log('Enter pressed')
+                    console.log('Enter pressed, current:', current)
                     event.preventDefault()
                     if (current >= 0 && current < themes.length) {
                         this.select_theme(current)
