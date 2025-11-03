@@ -6,7 +6,7 @@ namespace $.$$ {
      */
     export class $bog_theme_toggle extends $.$bog_theme_toggle {
         // Long press configuration
-        long_press_delay = 300 // milliseconds (reduced for testing)
+        long_press_delay = 300 // milliseconds
         move_threshold = 8 // pixels
 
         // Long press state
@@ -66,7 +66,6 @@ namespace $.$$ {
         press_end(event?: PointerEvent) {
             if (!event) return null
 
-            console.log('press_end triggered, is_long_press:', this.is_long_press)
             this.clear_press_timer()
 
             return null
@@ -97,13 +96,10 @@ namespace $.$$ {
 
         private on_long_press() {
             // Show popup picker
-            console.log('Long press triggered, showing picker')
             this.showed(true)
-            console.log('showed set to:', this.showed())
         }
 
         picker_close() {
-            console.log('picker_close called, closing popup')
             this.showed(false)
         }
     }
