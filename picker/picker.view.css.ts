@@ -6,5 +6,8 @@ namespace $.$$ {
         borderRadius: '8px',
         overflow: 'hidden',
         opacity: 1,
+        Search: {
+            borderRadius: '8px',
+        },
     })
 }
