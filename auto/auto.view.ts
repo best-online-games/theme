@@ -27,11 +27,12 @@ namespace $.$$ {
 
         /**
          * Detect system theme preference and return appropriate theme index
+         * Uses $mol_lights() which detects prefers-color-scheme from browser
          */
         @$mol_mem
         system_theme_index(): number {
             const themes = this.themes()
-            const prefersLight = this.$.$mol_media.match('(prefers-color-scheme: light)')
+            const prefersLight = this.$.$mol_lights()
 
             // Try to find light or dark theme based on system preference
             const preferredTheme = prefersLight ? '$mol_theme_light' : '$mol_theme_dark'

@@ -136,12 +136,11 @@
 :where([mol_theme='$mol_theme_upwork']) [mol_theme] {
     --mol_theme_luma: 1;
     --mol_theme_image: none;
-    --mol_theme_spirit: hsl(0deg, 0%, 100%, 0.75);
+    --mol_theme_spirit: rgba(255, 255, 255, 0.75);
 
-    /* Upwork colors: #73bb44 (primary green), #4fab4a (medium green), #385925 (dark green) */
-    /* Primary green hue: 96deg (from #73bb44) */
+    /* Upwork brand colors: #73bb44 (primary green), #4fab4a (medium green), #385925 (dark green), #b5deb1 (light green) */
     --mol_theme_back: #ffffff;
-    --mol_theme_card: #f7faf5;
+    --mol_theme_card: #f9fcf7;
     --mol_theme_field: #ffffff;
     --mol_theme_hover: rgba(115, 187, 68, 0.1);
 
@@ -153,22 +152,4 @@
     --mol_theme_control: #73bb44;
     --mol_theme_current: #4fab4a;
     --mol_theme_special: #385925;
-}
-@supports (color: oklch(0% 0 0deg)) {
-    [mol_theme='$mol_theme_upwork'],
-    :where([mol_theme='$mol_theme_upwork']) [mol_theme] {
-        --mol_theme_back: oklch(100% 0 96deg);
-        --mol_theme_card: oklch(98% 0.02 96deg);
-        --mol_theme_field: oklch(100% 0 96deg);
-        --mol_theme_hover: oklch(75% 0.12 96deg / 0.1);
-
-        --mol_theme_text: oklch(35% 0.02 25deg);
-        --mol_theme_shade: oklch(50% 0.01 280deg);
-        --mol_theme_line: oklch(75% 0.12 96deg / 0.25);
-        --mol_theme_focus: oklch(70% 0.15 96deg);
-
-        --mol_theme_control: oklch(70% 0.15 96deg);
-        --mol_theme_current: oklch(65% 0.13 110deg);
-        --mol_theme_special: oklch(35% 0.08 100deg);
-    }
 }
