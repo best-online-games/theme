@@ -15,7 +15,30 @@ namespace $.$$ {
 
         @$mol_mem
         theme_index(next?: number) {
-            return this.$.$mol_state_local.value(`${this}.theme_index()`, next) ?? 0
+            const stored = this.$.$mol_state_local.value(`${this}.theme_index()`, next)
+
+            // If user hasn't manually selected a theme, detect from system
+            if (stored === null && next === undefined) {
+                return this.system_theme_index()
+            }
+
+            return stored ?? 0
+        }
+
+        /**
+         * Detect system theme preference and return appropriate theme index
+         */
+        @$mol_mem
+        system_theme_index(): number {
+            const themes = this.themes()
+            const prefersLight = this.$.$mol_media.match('(prefers-color-scheme: light)')
+
+            // Try to find light or dark theme based on system preference
+            const preferredTheme = prefersLight ? '$mol_theme_light' : '$mol_theme_dark'
+            const index = themes.indexOf(preferredTheme)
+
+            // If preferred theme found, use it; otherwise default to 0
+            return index !== -1 ? index : 0
         }
 
         @$mol_mem
