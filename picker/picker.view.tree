@@ -1,18 +1,21 @@
-$bog_theme_picker $mol_list
+$bog_theme_picker $mol_scroll
 	theme_auto $bog_theme_auto
-	showed?val false
+	close? null
 	query?val \
 	focused_index?val -1
-	rows /
-		<= Search $mol_string
-			value?val <=> query?val
-			hint @ \Search themes
-		<= Theme_list $mol_list
-			rows <= theme_rows /
+	sub /
+		<= Content $mol_list rows /
+			<= Search $mol_string
+				value?val <=> query?val
+				hint @ \Search themes
+			<= Theme_list $mol_list
+				rows <= theme_rows /
 	event *
 		^
 		keydown?event <=> key_down?event null
-	theme_row* $bog_theme_picker_row
+	Theme_row* $bog_theme_picker_row
 		theme_name <= theme_name* \
-		clicked?event <=> theme_clicked*?event null
-		hovered?event <=> theme_hovered*?event null
+		click?event <=> theme_select*?event null
+		event *
+			^
+			pointerenter?event <=> theme_hover*?event null

@@ -17,4 +17,4 @@ $bog_theme_toggle $mol_pop
 	bubble_content /
 		<= Picker $bog_theme_picker
 			theme_auto <= theme_auto
-			showed?val <= showed?val
+			close? <=> picker_close? null

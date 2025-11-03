@@ -101,5 +101,10 @@ namespace $.$$ {
             this.showed(true)
             console.log('showed set to:', this.showed())
         }
+
+        picker_close() {
+            console.log('picker_close called, closing popup')
+            this.showed(false)
+        }
     }
 }
