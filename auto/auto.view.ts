@@ -34,8 +34,9 @@ namespace $.$$ {
             const themes = this.themes()
             const prefersLight = this.$.$mol_lights()
 
-            // Try to find light or dark theme based on system preference
-            const preferredTheme = prefersLight ? '$mol_theme_light' : '$mol_theme_dark'
+            // Try to find light or dark theme based on system preference.
+            // Theme names can be customized via view.tree (theme_light/theme_dark).
+            const preferredTheme = prefersLight ? this.theme_light() : this.theme_dark()
             const index = themes.indexOf(preferredTheme)
 
             // If preferred theme found, use it; otherwise default to 0
