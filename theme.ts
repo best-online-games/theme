@@ -1,6 +1,5 @@
 namespace $ {
     /**
-    
      * Theme css variables
      * @see https://mol.hyoo.ru/#!section=demos/demo=mol_textarea_demo
      */
