@@ -1,0 +1,392 @@
+$mol_example $mol_view
+	tags /string
+	aspects /string
+
+$mol_example_large $mol_example
+
+$bog_theme_auto $mol_plugin
+	themes <= themes_default /
+	theme_light \$mol_theme_light
+	theme_dark \$mol_theme_dark
+	theme_next? null
+	theme_prev? null
+	theme_set? null
+	attr * mol_theme <= theme \
+
+$mol_pop $mol_view
+	showed? false
+	align_vert \
+	align_hor \
+	prefer \vert
+	sub /
+		<= Anchor null
+	sub_visible /
+		<= Anchor
+		<= Bubble $mol_pop_bubble
+			align <= align \bottom_center
+			content <= bubble_content /$mol_view_content
+			height_max <= height_max 9999
+
+$mol_pop_bubble $mol_view
+	sub <= content /$mol_view_content
+	style *
+		^
+		maxHeight <= height_max 9999
+	attr *
+		^
+		mol_pop_align <= align \
+		tabindex 0
+
+$mol_scroll $mol_view
+	scroll_top? 0
+	scroll_left? 0
+	attr *
+		^
+		tabindex <= tabindex -1
+	event *
+		^
+		scroll?event <=> event_scroll?event null
+
+$mol_svg $mol_view
+	dom_name \svg
+	dom_name_space \http://www.w3.org/2000/svg
+	font_size 16
+	font_family \
+	style_size *
+
+$mol_svg_root $mol_svg
+	dom_name \svg
+	attr *
+		^
+		viewBox <= view_box \0 0 100 100
+		preserveAspectRatio <= aspect \xMidYMid
+
+$mol_svg_path $mol_svg
+	dom_name \path
+	attr *
+		^
+		d <= geometry \
+
+
+$mol_icon $mol_svg_root
+	view_box \0 0 24 24
+	minimal_width 16
+	minimal_height 16
+	sub /
+		<= Path $mol_svg_path
+			geometry <= path \
+
+$mol_icon_brightness_4 $mol_icon path \M12,18C11.11,18 10.26,17.8 9.5,17.45C11.56,16.5 13,14.42 13,12C13,9.58 11.56,7.5 9.5,6.55C10.26,6.2 11.11,6 12,6A6,6 0 0,1 18,12A6,6 0 0,1 12,18M20,8.69V4H15.31L12,0.69L8.69,4H4V8.69L0.69,12L4,15.31V20H8.69L12,23.31L15.31,20H20V15.31L23.31,12L20,8.69Z
+
+$mol_hotkey $mol_plugin
+	event *
+		^
+		keydown?event <=> keydown?event null
+	key *
+	mod_ctrl false
+	mod_alt false
+	mod_shift false
+
+$mol_string $mol_view
+	dom_name \input
+	enabled true
+	minimal_height 40
+	autocomplete false
+	selection? /number
+		0
+		0
+	auto /
+		<= selection_watcher null
+		<= error_report null
+	field *
+		^
+		disabled <= disabled false
+		value <= value_changed? <=> value? \
+		placeholder <= hint_visible <= hint \
+		spellcheck <= spellcheck true
+		autocomplete <= autocomplete_native \
+		selectionEnd <= selection_end 0
+		selectionStart <= selection_start 0
+		inputMode <= keyboard \text
+		enterkeyhint <= enter \go
+	attr *
+		^
+		maxlength <= length_max +Infinity
+		type <= type? \text
+	event *
+		^
+		input?event <=> event_change?event null
+	plugins /
+		<= Submit $mol_hotkey
+			mod_ctrl <= submit_with_ctrl false
+			key * enter?event <=> submit?event null
+
+$mol_list $mol_view
+	render_visible_only true
+	render_over 0.1
+	sub <= rows /$mol_view
+		<= Gap_before $mol_view style * paddingTop <= gap_before 0
+		<= Empty $mol_view
+		<= Gap_after $mol_view style * paddingTop <= gap_after 0
+	item_height_min* 1
+	item_width_min* 1
+	view_window_shift? 0
+	view_window /
+		0
+		0
+
+$mol_speck $mol_view
+	theme \$mol_theme_accent
+	sub /
+		<= value null
+
+$mol_button $mol_view
+	enabled true
+	click?event null
+	event_click?event null
+	status? /
+	event *
+		^
+		click?event <=> activate?event <=> event_activate?event null
+		dblclick?event <=> clicks?event null
+		keydown?event <=> key_press?event <=> event_key_press?event null
+	attr *
+		^
+		disabled <= disabled false
+		role \button
+		tabindex <= tab_index 0
+		title <= hint_safe <= hint \
+	sub /$mol_view_content
+		<= title
+	Speck $mol_speck
+		value <= error \
+
+$mol_button_typed $mol_button
+	minimal_height 40
+	minimal_width 40
+
+$mol_button_minor $mol_button_typed
+
+$bog_theme_picker_row $mol_button_minor
+	theme_name \
+	title <= theme_name
+	attr *
+		^
+		bog_theme_picker_row_focused <= focused_str \
+	event *
+		^
+		pointerenter?event <=> hover?event null
+
+$bog_theme_picker $mol_scroll
+	theme_auto $bog_theme_auto
+	close? null
+	query?val \
+	focused_index?val -1
+	Theme_row* $bog_theme_picker_row
+		theme_name <= theme_name* \
+		focused <= theme_focused* false
+		click?event <=> theme_select*?event null
+		hover?event <=> theme_hover*?event null
+	sub /
+		<= Content $mol_list rows /
+			<= Search $mol_string
+				value?val <=> query?val
+				hint @ \Just start typing
+			<= Theme_list $mol_list
+				rows <= theme_rows /
+	event *
+		^
+		keydown?event <=> key_down?event null
+
+$bog_theme_toggle $mol_pop
+	theme_auto $bog_theme_auto
+	showed?val false
+	align \bottom_right
+	Anchor $mol_button_minor
+		sub /
+			<= Icon $mol_icon_brightness_4
+		hint @ \Cycle through themes
+		click?event <=> clicked?event null
+		event *
+			^
+			pointerdown?event <=> press_start?event null
+			pointermove?event <=> press_move?event null
+			pointerup?event <=> press_end?event null
+			pointercancel?event <=> press_cancel?event null
+			lostpointercapture?event <=> press_lost?event null
+	bubble_content /
+		<= Backdrop $mol_view
+			event *
+				click?event <=> backdrop_click?event null
+		<= Picker $bog_theme_picker
+			theme_auto <= theme_auto
+			close? <=> picker_close? null
+
+$mol_labeler $mol_list
+	rows /
+		<= Label $mol_view
+			minimal_height 32
+			sub <= label /$mol_view_content
+				<= title
+		<= Content $mol_view
+			minimal_height 24
+			sub <= content /
+
+$mol_form_field $mol_labeler
+	bids /string
+	label /
+		<= name \
+		<= Bid $mol_view
+			sub / <= bid \
+	content / <= control null
+
+$mol_icon_chevron $mol_icon path \M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z
+
+$mol_icon_chevron_left $mol_icon path \M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z
+
+$mol_icon_chevron_right $mol_icon path \M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z
+
+$mol_number $mol_view
+	precision_view <= precision 1
+	precision_change <= precision 1
+	boost 10
+	value_min -Infinity
+	value_max +Infinity
+	value? +NaN
+	enabled true
+	plugins /
+		<= Hotkey $mol_hotkey
+			key *
+				down? <=> event_dec? null
+				up? <=> event_inc? null
+				pageDown? <=> event_dec_boost? null
+				pageUp? <=> event_inc_boost? null
+	sub /
+		<= Dec $mol_button_minor
+			event_click? <=> event_dec? null
+			enabled <= dec_enabled <= enabled
+			sub / <= dec_icon $mol_icon_chevron_left
+		<= String $mol_string
+			- \ we don't want native number controls in mobile devices
+			- \ https://stackoverflow.com/questions/3790935/can-i-hide-the-html5-number-input-s-spin-box
+			type <= type \text
+			keyboard \decimal
+			value? <=> value_string? \
+			hint <= hint \ 
+			enabled <= string_enabled <= enabled
+			submit? <=> submit? null
+		<= Inc $mol_button_minor
+			event_click? <=> event_inc? null
+			enabled <= inc_enabled <= enabled
+			sub / <= inc_icon $mol_icon_chevron_right
+
+$mol_row $mol_view
+
+$mol_icon_clipboard $mol_icon path \M19,3H14.82C14.4,1.84 13.3,1 12,1C10.7,1 9.6,1.84 9.18,3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3M12,3A1,1 0 0,1 13,4A1,1 0 0,1 12,5A1,1 0 0,1 11,4A1,1 0 0,1 12,3
+
+$mol_icon_clipboard_outline $mol_icon path \M19,3H14.82C14.4,1.84 13.3,1 12,1C10.7,1 9.6,1.84 9.18,3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3M12,3A1,1 0 0,1 13,4A1,1 0 0,1 12,5A1,1 0 0,1 11,4A1,1 0 0,1 12,3M7,7H17V5H19V19H5V5H7V7Z
+
+$mol_button_copy $mol_button_minor
+	blobs /$mol_blob
+		<= text_blob? $mol_blob /
+			/BlobPart <= text <= title
+			* type \text/plain
+		<= html_blob? $mol_blob /
+			/BlobPart <= html \
+			* type \text/html
+	data *
+	sub /
+		<= Icon $mol_icon_clipboard_outline
+		<= title \
+
+
+$mol_button_major $mol_button_minor
+	theme \$mol_theme_base
+
+$mol_status $mol_view
+	status <= title
+	minimal_height 24
+	minimal_width 0
+	sub /
+		<= message \
+
+$mol_form $mol_list
+	submit_allowed true
+	submit_blocked false
+	event *
+		^
+		keydown?event <=> keydown?event null
+	save?event null
+	message_done @ \Saved
+	errors *string
+		\Form invalid
+			<= form_invalid @ \Form is not valid
+	rows /
+		<= Body $mol_list
+			sub <= body <= form_fields /$mol_form_field
+		<= Foot $mol_row
+			sub <= foot <= buttons /$mol_view
+				<= Submit $mol_button_major
+					title <= submit_title @ \Save
+					hint <= submit_hint \
+					activate? => submit_activate?
+					click? <=> submit? null
+				<= Result $mol_status
+					message <= result? null
+
+$bog_theme_demo $mol_example_large
+	plugins /
+		<= Theme $bog_theme_auto
+	style *
+		--mol_theme_hue <= hue_deg \
+		--mol_theme_hue_spread <= hue_spread_deg \
+	sub /
+		<= Config $mol_row sub /
+			<= Theme_switcher $mol_form_field
+				name \Theme
+				Content <= Theme_toggle $bog_theme_toggle
+					theme_auto <= Theme
+			<= Hue_field $mol_form_field
+				name \Hue
+				Content <= Hue $mol_number
+					value? <=> hue? 540
+					precision_change 15
+			<= Hue_spread_field $mol_form_field
+				name \Hue spread
+				Content <= Hue_spread $mol_number
+					value? <=> hue_spread? 90
+					precision_change 15
+		<= Scroll $mol_scroll sub /
+			<= Cases $bog_theme_demo_case
+				title \Current light
+				inner /
+					<= Base $bog_theme_demo_case theme \$mol_theme_base
+					<= Current $bog_theme_demo_case theme \$mol_theme_current
+					<= Special $bog_theme_demo_case theme \$mol_theme_special
+					<= Accent $bog_theme_demo_case theme \$mol_theme_accent
+	tags /
+		\theme
+		\skin
+	aspects /
+		\Type/Color
+
+$bog_theme_demo_case $mol_view
+	title <= theme \
+	sub /
+		<= Self $mol_list rows /
+			<= Card1 $mol_list rows /
+				<= Card2 $mol_row sub /
+					<= Card2_text $mol_button_copy title <= title
+				<= Card1_text $mol_button_copy title \	$mol_theme.card
+			<= Back $mol_button_copy title \$mol_theme.back
+			<= Line $mol_button_copy title \$mol_theme.line
+			<= Text $mol_button_copy title \$mol_theme.text
+			<= Field $mol_button_copy title \$mol_theme.field
+			<= Shade $mol_button_copy title \$mol_theme.shade
+			<= Focus $mol_button_copy title \$mol_theme.focus
+			<= Control $mol_button_copy title \$mol_theme.control
+			<= Hover $mol_button_copy title \$mol_theme.hover
+			<= Current $mol_button_copy title \$mol_theme.curent
+			<= Special $mol_button_copy title \$mol_theme.special
+		^ inner
+	inner /
