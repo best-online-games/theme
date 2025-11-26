@@ -111,7 +111,6 @@
     "$mol_charset_encoding",
     "$mol_charset_encode",
     "$mol_file_transaction",
-    "$node_modules",
     "$mol_example_large",
     "$mol_example",
     "$mol_view_view",
